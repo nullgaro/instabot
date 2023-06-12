@@ -1,0 +1,82 @@
+{
+  "users": {
+    "username1": {
+      "name": "Name Surname",
+      "user": "username1",
+      "mail": "email@example.com",
+      "birthday": {
+        "day": 1,
+        "month": 1,
+        "year": 1999
+      },
+      "passwords": {
+        "mail_pass": "p@ssw0rd1234",
+        "insta_pass": "p@ssw0rd1234",
+        "face_pass": "p@ssw0rd1234",
+        "imgur_pass": "p@ssw0rd1234"
+      },
+      "instagram_tokens": {
+        "insta_id": "00000000000000000",
+        "id_api_insta": "00000000000000000",
+        "id_secret_api_insta": "00000000000000000000000000000000",
+        "insta_token": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "imgur_tokens": {
+        "id_api_imgur": "00000000000000000",
+        "id_secret_api_imgur": "0000000000000000000000000000000000000000"
+      },
+      "description": "Gimme a like",
+      "tags": "#tag1 #tag2 #tag3 #tag4 #tag5 #tag6 #tag7",
+      "subreddits": [
+        "subreddit1",
+        "subreddit2",
+        "subreddit3",
+        "subreddit4",
+        "subreddit5",
+        "subreddit6"
+      ]
+    },
+    "username2": {
+      "name": "Name Surname",
+      "user": "username2",
+      "mail": "email@example.com",
+      "birthday": {
+        "day": 1,
+        "month": 1,
+        "year": 1999
+      },
+      "passwords": {
+        "mail_pass": "p@ssw0rd1234",
+        "insta_pass": "p@ssw0rd1234",
+        "face_pass": "p@ssw0rd1234",
+        "imgur_pass": "p@ssw0rd1234"
+      },
+      "instagram_tokens": {
+        "insta_id": "00000000000000000",
+        "id_api_insta": "00000000000000000",
+        "id_secret_api_insta": "00000000000000000000000000000000",
+        "insta_token": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "imgur_tokens": {
+        "id_api_imgur": "00000000000000000",
+        "id_secret_api_imgur": "0000000000000000000000000000000000000000"
+      },
+      "description": "Gimme a like plz",
+      "tags": "#tag1 #tag2 #tag3 #tag4 #tag5",
+      "subreddits": [
+        "subreddit1",
+        "subreddit2",
+        "subreddit3",
+        "subreddit4",
+        "subreddit5",
+        "subreddit6",
+        "subreddit7",
+        "subreddit8",
+        "subreddit9",
+        "subreddit10",
+        "subreddit11",
+        "subreddit12"
+      ]
+    }
+  }
+}

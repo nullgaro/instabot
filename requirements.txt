@@ -1,0 +1,5 @@
+aiohttp==3.8.3
+APScheduler==3.10.1
+moviepy==1.0.3
+python-dotenv==1.0.0
+pytz==2023.3

@@ -1,0 +1,6 @@
+logs
+publish/posts/*
+.env
+.users.json
+*.db
+*__pycache__*
