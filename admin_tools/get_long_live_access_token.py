@@ -11,13 +11,11 @@ def get_data_users(user):
     with open(Path(f"{this_path}/../.users.json"), "r") as json_file:
         json_load = json.load(json_file)
 
-    info = {
+    return {
         'app_id' : json_load['users'][user]['instagram_tokens']['id_api_insta'],
         'app_secret' : json_load['users'][user]['instagram_tokens']['id_secret_api_insta'],
         'access_token' : json_load['users'][user]['instagram_tokens']['insta_token'],
     }
-
-    return info
 
 # Main function - Get Long Live Access Token (For 2 months)
 async def get_LLAT(user):

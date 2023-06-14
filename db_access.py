@@ -7,10 +7,11 @@ import sqlite3 as sql
 
 class SingletonDB(type):
     _instances = {}
-    def __call__(cls, user, *args, **kwargs):
-        if (cls, user) not in cls._instances:
-            cls._instances[(cls, user)] = super(SingletonDB, cls).__call__(user, *args, **kwargs)
-        return cls._instances[(cls, user)]
+    def __call__(self, user, *args, **kwargs):
+        if (self, user) not in self._instances:
+            self._instances[self, user] = super(SingletonDB, self).__call__(user, *args, **kwargs)
+
+        return self._instances[self, user]
 
 class DB(metaclass=SingletonDB):
 
@@ -101,10 +102,7 @@ class DB(metaclass=SingletonDB):
             query = f"SELECT file_name FROM posts WHERE stage = '{stage}' LIMIT 1"
             self.cur.execute(query)
             data = self.cur.fetchone()
-        if data == None:
-            return False
-
-        return len(data) > 0
+        return False if data is None else len(data) > 0
 
     # Search all the posts filtered by the stage where id_post matches with the given post and return the file_name
     def getPostsStageFilteredCarousel(self, file_name, stage):
@@ -125,7 +123,7 @@ class DB(metaclass=SingletonDB):
     # Returns the last used row
     def getLastPostNumber(self):
         with self.conn:
-            query = f"SELECT max(rowid) FROM posts"
+            query = "SELECT max(rowid) FROM posts"
             self.cur.execute(query)
             data, = self.cur.fetchone()
         return data
@@ -164,5 +162,5 @@ class DB(metaclass=SingletonDB):
 
     def clearPostsTable(self):
         with self.conn:
-            query = f"DELETE FROM posts"
+            query = "DELETE FROM posts"
             self.cur.execute(query)

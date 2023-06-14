@@ -50,8 +50,7 @@ def get_user_subreddits(user):
     with open(Path(f"{this_path}/.users.json"), "r") as json_file:
         json_load = json.load(json_file)
 
-    subreddits = json_load['users'][user]['subreddits']
-    return subreddits
+    return json_load['users'][user]['subreddits']
 
 def daily_scrap(user):
     l_single_posts_count = l_carousel_count = l_videos_count = l_failed_count = 0

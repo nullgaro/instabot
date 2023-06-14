@@ -121,14 +121,7 @@ def get_user_data(user):
     with open(Path(f"{this_path}/../.users.json"), "r") as json_file:
         json_load = json.load(json_file)
 
-    info = {
-        'ig_id' : json_load['users'][user]['instagram_tokens']['insta_id'],
-        'access_token' : json_load['users'][user]['instagram_tokens']['insta_token'],
-        'description' : json_load['users'][user]['description'],
-        'tags' : json_load['users'][user]['tags']
-    }
-
-    return info
+    return {'ig_id': json_load['users'][user]['instagram_tokens']['insta_id'], 'access_token': json_load['users'][user]['instagram_tokens']['insta_token'], 'description': json_load['users'][user]['description'], 'tags': json_load['users'][user]['tags']}
 
 # This is the main function for single posts
 def post(user, file_name, file_type, comment, reddit_user, subreddit):
@@ -151,7 +144,7 @@ def post(user, file_name, file_type, comment, reddit_user, subreddit):
     try:
         ig_container = asyncio.run(create_single_item_container(user, ig_id, access_token, image_url, file_type[:5], caption))
         post_id = asyncio.run(publish_container(user, ig_container, ig_id, access_token))
-    except:
+    except Exception:
         return 400
 
     instagram_url = asyncio.run(get_url(user, post_id, access_token))
@@ -176,23 +169,23 @@ def post_carousel(user, posts_data, comment, reddit_user, subreddit):
 
             imgur_result = asyncio.run(iu.main(user, file_name, file_type[:5]))
 
-            if imgur_result == 429:
-                return 429
-            elif imgur_result == 400:
+            if imgur_result == 400:
                 continue
+            elif imgur_result == 429:
+                return 429
 
             image_url = db.postGetImgurUrl(file_name)
 
             ig_containers.append(asyncio.run(create_carousel_item_container(user, ig_id, access_token, image_url, file_type[:5])))
 
-        if len(ig_containers) == 0:
+        if not ig_containers:
             return 400
 
         caption = create_caption(description, tags, comment, reddit_user, subreddit)
 
         ig_carousel_container = asyncio.run(create_carousel_container(user, ig_id, access_token, caption, ig_containers))
         post_id = asyncio.run(publish_container(user, ig_carousel_container, ig_id, access_token))
-    except:
+    except Exception:
         return 400
 
     instagram_url = asyncio.run(get_url(user, post_id, access_token))

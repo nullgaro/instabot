@@ -37,7 +37,7 @@ async def upload_media(user, url, client_id, media_name, media_type):
                 db.postAddedImgur(media_name, "uploaded", link)
                 logging.info(f"{user}: Uploaded post {media_name} on imgur with url {url}")
                 return 200
-            except:
+            except Exception:
                 info = resp.text
                 logging.error(f"{user}: Got error tring to encode the json response:\n{info}\n")
                 return 400
@@ -55,13 +55,11 @@ def get_client_id(user):
     with open(Path(f"{this_path}/../.users.json"), "r") as json_file:
         json_load = json.load(json_file)
 
-    client_id = json_load['users'][user]['imgur_tokens']['id_api_imgur']
-
-    return client_id
+    return json_load['users'][user]['imgur_tokens']['id_api_imgur']
 
 # Main function
 async def main(user, media_name, media_type):
-    url = f"https://api.imgur.com/3/upload"
+    url = "https://api.imgur.com/3/upload"
 
     client_id = get_client_id(user)
 

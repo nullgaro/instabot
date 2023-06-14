@@ -12,14 +12,14 @@ from db_access import DB
 # Give the url and say the type (image or video) and download the content
 def download_media(user, media_url, type, numberFile):
     media_data = requests.get(media_url).content
-    if (type == "jpg"):
+    if type == "jpg":
         with open(Path(f"{this_path}/posts/{user}/{numberFile}-image.jpg"), 'wb') as handler:
             handler.write(media_data)
-    if (type == "mp4-video"):
-        with open(Path(f"{this_path}/posts/{user}/{numberFile}-video-noaudio.mp4"), 'wb') as handler:
-            handler.write(media_data)
-    if (type == "mp4-audio"):
+    elif type == "mp4-audio":
         with open(Path(f"{this_path}/posts/{user}/{numberFile}-audio.mp4"), 'wb') as handler:
+            handler.write(media_data)
+    elif type == "mp4-video":
+        with open(Path(f"{this_path}/posts/{user}/{numberFile}-video-noaudio.mp4"), 'wb') as handler:
             handler.write(media_data)
 
 # Function to combine the audio with the image to create the video
