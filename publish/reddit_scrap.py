@@ -58,6 +58,11 @@ def scrapRedditPost(user, subreddit, limit):
     headers = {'user-agent': 'Mozilla/5.0 (Macintosh; PPC Mac OS X 10_8_7 rv:5.0; en-US) AppleWebKit/533.31.5 (KHTML, like Gecko) Version/4.0 Safari/533.31.5'}
 
     response = requests.request("GET", url, headers=headers)
+
+    if response.status_code == 403:
+        logging.warn(f"{user}: The subreddit {subreddit} is private, it's impossible to scrap any post")
+        return 0, 0, 0, 0
+
     data = response.json()
     posts = data["data"]["children"]
 
