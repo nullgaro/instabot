@@ -170,7 +170,7 @@ if __name__ == "__main__":
 
         db[WORKING_USER] = DB(WORKING_USER)
 
-        onstart_checks([WORKING_USER])
+        onstart_checks(WORKING_USER)
 
         # Here are the scheduler jobs added
         job_scrap = sched.add_job(daily_scrap, CronTrigger.from_crontab(CRONTAB_SCRAP), jitter=JITTER, args=[WORKING_USER])
