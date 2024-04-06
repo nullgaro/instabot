@@ -76,6 +76,13 @@ A la hora de publicar las publicaciones se utiliza la libreria APScheduler para 
 
 Debido a que Instagram requiere de una URL pública para tomar la publicación que se va a subir, utilizamos la API de Imgur para subirlas y que nos devuelva una URL que será la que le daremos a la API de Instagram.
 
+# Resultados
+
+Estos son los resultados que tuve en Octubre 2023:
+
+![instabot-statistics](https://github.com/nullgaro/instabot/assets/90156486/7f9910bd-5b3c-48c0-b732-04fd333a340e)
+
+
 ## Condiciones de los archivos:
 
 ### Imágenes
