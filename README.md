@@ -76,6 +76,12 @@ When publishing the posts, the APScheduler library is used to simulate a crontab
 
 Because Instagram requires a public URL to grab the post to be uploaded, we use the Imgur API to upload them and have it return a URL that will be the one we will give to the Instagram API.
 
+# Results
+
+This are the results that I had in October 2023:
+
+![instabot-statistics](https://github.com/nullgaro/instabot/assets/90156486/7f9910bd-5b3c-48c0-b732-04fd333a340e)
+
 ## File conditions:
 
 ### Images
