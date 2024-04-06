@@ -78,8 +78,7 @@ Because Instagram requires a public URL to grab the post to be uploaded, we use 
 
 ## File conditions:
 
-### Images.
-
+### Images
 ```
     Up to 8MB
 
