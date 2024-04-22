@@ -11,6 +11,20 @@ Instabot is a program developed in Python with the purpose of fully automating a
 
 It features the ability to handle multiple accounts simultaneously with the same instance, for greater organization and convenience.
 
+# How it works
+
+The program uses the Reddit API to download the maximum allowed posts (100 posts) from the subreddits previously annotated in the `.users.json` file and filters them according to whether they are valid for Instagram requirements, the videos are formatted for Instagram to accept them and everything downloaded is stored in a SQLite database.
+
+When publishing the posts, the APScheduler library is used to simulate a crontab with the times given in the `.env` file and it will publish them for the users that are in the file.
+
+Because Instagram requires a public URL to grab the post to be uploaded, we use the Imgur API to upload them and have it return a URL that will be the one we will give to the Instagram API.
+
+# Results
+
+This are the results that I had in October 2023:
+
+![instabot-statistics](https://github.com/nullgaro/instabot/assets/90156486/7f9910bd-5b3c-48c0-b732-04fd333a340e)
+
 # Previous steps
 
 ## Preparing the account to be able to automate it
@@ -67,20 +81,6 @@ It features the ability to handle multiple accounts simultaneously with the same
 # Run the program
 
 To run the program open a terminal and run `python3 main.py &`, I recommend adding the `&` to allow the program to run in the background.
-
-# How it works
-
-The program uses the Reddit API to download the maximum allowed posts (100 posts) from the subreddits previously annotated in the `.users.json` file and filters them according to whether they are valid for Instagram requirements, the videos are formatted for Instagram to accept them and everything downloaded is stored in a SQLite database.
-
-When publishing the posts, the APScheduler library is used to simulate a crontab with the times given in the `.env` file and it will publish them for the users that are in the file.
-
-Because Instagram requires a public URL to grab the post to be uploaded, we use the Imgur API to upload them and have it return a URL that will be the one we will give to the Instagram API.
-
-# Results
-
-This are the results that I had in October 2023:
-
-![instabot-statistics](https://github.com/nullgaro/instabot/assets/90156486/7f9910bd-5b3c-48c0-b732-04fd333a340e)
 
 ## File conditions:
 

@@ -11,6 +11,20 @@ Instabot es un programa desarrollado en Python con la finalidad de automatizar a
 
 Cuenta con la posibilidad de manejar varias cuentas simultáneamente con la misma instancia, para una mayor organización y comodidad.
 
+# Cómo funciona
+
+El programa utiliza la API de Reddit para descargar el máximo de publicaciones permitidas (100 publicaciones) de los subreddits previamente anotados en el archivo `.users.json` y los filtra según si son validos para los requisitos de Instagram, los videos los formatea para que Instagram los acepte y todo lo descargado se almacena en una base de datos de SQLite.
+
+A la hora de publicar las publicaciones se utiliza la libreria APScheduler para simular un crontab con las horas dadas en el archivo `.env` y las publicará para los usuarios que estén en este mismo archivo.
+
+Debido a que Instagram requiere de una URL pública para tomar la publicación que se va a subir, utilizamos la API de Imgur para subirlas y que nos devuelva una URL que será la que le daremos a la API de Instagram.
+
+# Resultados
+
+Estos son los resultados que tuve en Octubre 2023:
+
+![instabot-statistics](https://github.com/nullgaro/instabot/assets/90156486/7f9910bd-5b3c-48c0-b732-04fd333a340e)
+
 # Pasos previos
 
 ## Preparando la cuenta para poder automatizarla
@@ -67,21 +81,6 @@ Cuenta con la posibilidad de manejar varias cuentas simultáneamente con la mism
 # Ejecutar el programa
 
 Para ejecutar el programa abre una terminal y ejecuta `python3 main.py &`, recomiendo añadir el `&` para permitir que el programa corra en segundo plano.
-
-# Cómo funciona
-
-El programa utiliza la API de Reddit para descargar el máximo de publicaciones permitidas (100 publicaciones) de los subreddits previamente anotados en el archivo `.users.json` y los filtra según si son validos para los requisitos de Instagram, los videos los formatea para que Instagram los acepte y todo lo descargado se almacena en una base de datos de SQLite.
-
-A la hora de publicar las publicaciones se utiliza la libreria APScheduler para simular un crontab con las horas dadas en el archivo `.env` y las publicará para los usuarios que estén en este mismo archivo.
-
-Debido a que Instagram requiere de una URL pública para tomar la publicación que se va a subir, utilizamos la API de Imgur para subirlas y que nos devuelva una URL que será la que le daremos a la API de Instagram.
-
-# Resultados
-
-Estos son los resultados que tuve en Octubre 2023:
-
-![instabot-statistics](https://github.com/nullgaro/instabot/assets/90156486/7f9910bd-5b3c-48c0-b732-04fd333a340e)
-
 
 ## Condiciones de los archivos:
 
