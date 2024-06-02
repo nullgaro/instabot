@@ -269,6 +269,8 @@ def scrapRedditPost(user, subreddit, limit):
                 os.remove(Path(f"{this_path}/../../{i}-videoTEMP_MPY_wvf_snd.mp3"))
             if os.path.exists(Path(f"{this_path}/../../{i}-video-not-editedTEMP_MPY_wvf_snd.mp3")):
                 os.remove(Path(f"{this_path}/../../{i}-video-not-editedTEMP_MPY_wvf_snd.mp3"))
+            if os.path.exists(Path(f"{this_path}/../{i}-video-not-editedTEMP_MPY_wvf_snd.mp3")):
+                os.remove(Path(f"{this_path}/../{i}-video-not-editedTEMP_MPY_wvf_snd.mp3"))
 
     logging.info(f'{user}: Got {l_single_posts_count} single posts, {l_carousel_count} carousel posts and {l_videos_count} videos with {l_failed_count} failed posts from "{subreddit}" subreddit')
     return l_single_posts_count, l_carousel_count, l_videos_count, l_failed_count
